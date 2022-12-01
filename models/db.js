@@ -16,17 +16,9 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 //      connecting db to model
-db.users = require("./usersModel")(sequelize, DataTypes);
-db.product = require("./productModel")(sequelize, DataTypes);
-db.cart = require("./cartModel")(sequelize, DataTypes);
-db.permission = require("./permissionModel")(sequelize, DataTypes);
-db.order = require("./orderModel")(sequelize, DataTypes);
-db.order_product = require("./order_productModels")(sequelize, DataTypes);
-
-//      Relationship
-db.product.belongsTo(db.users, { foreignKey: 'seller_id' });
-db.cart.belongsTo(db.product, { foreignKey: 'product_id' });
-db.order.belongsTo(db.users, { foreignKey: 'buyer_id' });
+db.buses = require("./busModel")(sequelize, DataTypes);
+db.busStations = require("./busStationsModel")(sequelize, DataTypes);
+db.passengers = require("./passengerModel")(sequelize, DataTypes);
 
 
 //      sync db
